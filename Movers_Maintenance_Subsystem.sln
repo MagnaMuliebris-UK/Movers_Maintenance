@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35303.130
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Movers_Maintenance_Subsystem", "Movers_Maintenance_Subsystem.csproj", "{6A628B72-3886-44D5-8480-9CE08893736E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{01837D18-04EF-4371-8BD4-269411188115}"
+	ProjectSection(SolutionItems) = preProject
+		Class1.cs = Class1.cs
+		Class2.cs = Class2.cs
+		Class3.cs = Class3.cs
+		Class4.cs = Class4.cs
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6A628B72-3886-44D5-8480-9CE08893736E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A628B72-3886-44D5-8480-9CE08893736E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A628B72-3886-44D5-8480-9CE08893736E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A628B72-3886-44D5-8480-9CE08893736E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2E01CDF1-72CF-494E-B493-F21A62D00FF5}
+	EndGlobalSection
+EndGlobal
