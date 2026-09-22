@@ -57,6 +57,10 @@ namespace Movers_Maintenance_Subsystem.DALs
             {
                 using (SqlConnection Connection = new(_connectionString))
                 {
+                    if(OverarchingSettings.CascadeDeleteIsEnabled)
+                    {
+                        DALActionCommenced.SessionDelCheckInconsistencies(id);
+                    }
                     Connection.Open();
                     SqlCommand deleteCommand = new();
                     deleteCommand.Connection = Connection;
@@ -70,7 +74,6 @@ namespace Movers_Maintenance_Subsystem.DALs
                     int rowsAffected = deleteCommand.ExecuteNonQuery();
                     //close sqlconnection
                     Connection.Close();
-                    DALActionCommenced.SessionDelCheckSiSInconsistencies();
                     return rowsAffected;
                 }
             }
