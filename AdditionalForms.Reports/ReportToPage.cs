@@ -90,7 +90,7 @@ namespace Movers_Maintenance_Subsystem.AdditionalForms.Reports
             }
             string DebugPath = Path.GetDirectoryName(Environment.CurrentDirectory);
             string dataDirectoryPath = Path.GetDirectoryName(DebugPath);
-            string outputPath = $"{dataDirectoryPath}report.png";
+            string outputPath = $"{dataDirectoryPath}report_{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}.png";
             generator.PrettyPrintReport(outputPath, reportData);
 
             Console.WriteLine($"Report generated at: {outputPath}");
