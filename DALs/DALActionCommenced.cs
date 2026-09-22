@@ -9,11 +9,10 @@ using Movers_Maintenance_Subsystem.Models;
 namespace Movers_Maintenance_Subsystem.DALs
 {
     /// <summary>
-    /// If an action in a DAL is suspected to interfere with another DAL, it goes here
+    /// If an action in a DAL is suspected to interfere with a different database, it goes here. Goes hand in hand with CascadeDelete Setting.
     /// </summary>
     public class DALActionCommenced
     {
-        //Staff member removed, Cascade begins
         public static void StaffDelCheckInconsistencies(int delStaffID)
         {
             List<Checkup> check = DALCheckup.GetAll();
@@ -40,89 +39,48 @@ namespace Movers_Maintenance_Subsystem.DALs
                     DALStaffInSessions.Remove(s.StaffID, s.SessionID);
                 }
         }
-        public static void StaffDelCheckSiSInconsistencies()
+        public static void VanDelCheckInconsistencies(int delVanID)
         {
-            bool Validated = false;
-            List<Staff> staff = DALStaff.GetAll();
+            List<Checkup> check = DALCheckup.GetAll();
+            foreach (Checkup c in check)
+            {
+                if(delVanID==c.VanID)
+                {
+                    DALCheckup.Remove(c.CheckupID);
+                }
+            }
+        }
+        public static void SessionDelCheckInconsistencies(int delSessionID)
+        {
             List<StaffInSessions> SiS = DALStaffInSessions.GetAll();
             foreach (StaffInSessions s in SiS)
             {
-                foreach (Staff stf in staff)
-                {
-                    if (s.StaffID == stf.StaffID)
-                    {
-                        Validated = true;
-                    }
-                }
-                if (!Validated)
+                if (s.SessionID == delSessionID)
                 {
                     DALStaffInSessions.Remove(s.StaffID, s.SessionID);
                 }
-                Validated = false;
             }
         }
-        public static void SessionDelCheckSiSInconsistencies()
+        public static void CheckupDelCheckInconsistencies(int delCheckupID)
         {
-            bool Validated = false;
-            List<Session> sessions = DALSession.GetAll();
-            List<StaffInSessions> SiS = DALStaffInSessions.GetAll();
-            foreach (StaffInSessions s in SiS)
-            {
-                foreach (Session session in sessions)
-                {
-                    if (s.SessionID == session.SessionID)
-                    {
-                        Validated = true;
-                    }
-                }
-                if (!Validated)
-                {
-                    DALStaffInSessions.Remove(s.StaffID, s.SessionID);
-                }
-                Validated = false;
-            }
-        }
-        public static void CheckupDelCheckIiCInconsistencies()
-        {
-            bool Validated = false;
-            List<Checkup> cUP = DALCheckup.GetAll();
             List<ItemsInCheckup> IiC = DALItemsInCheckup.GetAll();
             foreach (ItemsInCheckup iic in IiC)
             {
-                foreach (Checkup c in cUP)
-                {
-                    if (iic.CheckupID == c.CheckupID)
-                    {
-                        Validated = true;
-                    }
-                }
-                if (!Validated)
+                if (iic.CheckupID == delCheckupID)
                 {
                     DALItemsInCheckup.Remove(iic.CheckupID, iic.ItemID);
                 }
-                Validated = false;
             }
         }
-        public static void ItemDelCheckIiCInconsistencies()
+        public static void ItemDelCheckInconsistencies(int delItemID)
         {
-            bool Validated = false;
-            List<Item> itm = DALItem.GetAll();
             List<ItemsInCheckup> IiC = DALItemsInCheckup.GetAll();
             foreach (ItemsInCheckup iic in IiC)
             {
-                foreach (Item i in itm)
-                {
-                    if (iic.ItemID == i.ItemID)
-                    {
-                        Validated = true;
-                    }
-
-                }
-                if (!Validated)
+                if (iic.ItemID == delItemID)
                 {
                     DALItemsInCheckup.Remove(iic.CheckupID, iic.ItemID);
                 }
-                Validated = false;
             }
         }
     }
