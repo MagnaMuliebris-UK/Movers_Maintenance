@@ -92,6 +92,10 @@ namespace Movers_Maintenance_Subsystem.DALs
             {
                 using (SqlConnection Connection = new(_connectionString))
                 {
+                    if(OverarchingSettings.CascadeDeleteIsEnabled)
+                    {
+                        DALActionCommenced.VanDelCheckInconsistencies(id);
+                    }
                     Connection.Open();
                     SqlCommand removeVanCommand = new();
                     removeVanCommand.Connection = Connection;
