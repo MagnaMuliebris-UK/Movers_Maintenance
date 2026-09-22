@@ -5,5 +5,6 @@
         public static bool QueryActionIsEnabled { get; set; }
         public static bool ReportActionIsEnabled { get; set; }
         public static bool HelpButtonsIsEnabled { get; set; }
+        public static bool CascadeDeletionIsEnabled { get; set; }
     }
 }
