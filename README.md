@@ -13,3 +13,7 @@ If you wish to delete a worker for any reason, the relevant checkups, sessions, 
 The Report functionality is limited, and deposits the report (labelled Report_{DATE-TIME}) in the bin segment of the application.
 
 This project is still being worked on as of the time of making this (22/09/2026).
+
+# PLANS FOR FUTURE ADDITIONS/CHANGES
+Full refactoring of AdditionalForms.(...) and redesign.
+Small tweaks to Main Menu
