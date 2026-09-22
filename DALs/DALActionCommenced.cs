@@ -13,6 +13,33 @@ namespace Movers_Maintenance_Subsystem.DALs
     /// </summary>
     public class DALActionCommenced
     {
+        //Staff member removed, Cascade begins
+        public static void StaffDelCheckInconsistencies(int delStaffID)
+        {
+            List<Checkup> check = DALCheckup.GetAll();
+            List<Van> van = DALVan.GetAll();
+            List<StaffInSessions> SiS = DALStaffInSessions.GetAll();
+            foreach(Van v in van)
+            {
+               if (v.DriverID == delStaffID)
+               {
+                    DALVan.Remove(v.VanID);
+               }
+            }
+            foreach(Checkup c in check)
+            {
+                if(c.MechanicID == delStaffID)
+                {
+                    DALCheckup.Remove(c.CheckupID);
+                }
+            }
+            foreach(StaffInSessions s in SiS)
+            {
+                if(s.StaffID==delStaffID||s.TrainerID==delStaffID)
+                {
+                    DALStaffInSessions.Remove(s.StaffID, s.SessionID);
+                }
+        }
         public static void StaffDelCheckSiSInconsistencies()
         {
             bool Validated = false;
@@ -26,7 +53,6 @@ namespace Movers_Maintenance_Subsystem.DALs
                     {
                         Validated = true;
                     }
-
                 }
                 if (!Validated)
                 {
@@ -48,7 +74,6 @@ namespace Movers_Maintenance_Subsystem.DALs
                     {
                         Validated = true;
                     }
-
                 }
                 if (!Validated)
                 {
@@ -70,7 +95,6 @@ namespace Movers_Maintenance_Subsystem.DALs
                     {
                         Validated = true;
                     }
-
                 }
                 if (!Validated)
                 {
