@@ -47,7 +47,7 @@ namespace Movers_Maintenance_Subsystem.AdditionalForms.Deletes
 
         private void btnDelRecord_Click(object sender, EventArgs e)
         {
-            bool ActionAcceptance = FC.QueryAction("Are you sure you would you like to remove this chekcup?", "Movers");
+            bool ActionAcceptance = FC.QueryAction("Are you sure you would you like to remove this checkup?", "Movers");
             if (ActionAcceptance)
             {
                 if(DALCheckup.Remove((int)updnCID.Value)>0)
