@@ -41,10 +41,20 @@
                 lblIsHelpEnabled.ForeColor = Color.FromArgb(255, 69, 61);
                 ChoiceHB_EnaDisa = "enable";
             }
+            if (OverarchingSettings.CascadeDeletionIsEnabled)
+            {
+                lblCascadeDeletionIsEnabled.Text = "Enabled";
+                lblCascadeDeletionIsEnabled.ForeColor = Color.FromArgb(77, 221, 77);
+                ChoiceCD_EnaDisa = "disable";
+            }
+            else
+            {
+                lblCascadeDeletionIsEnabled.Text = "Disabled";
+                lblCascadeDeletionIsEnabled.ForeColor = Color.FromArgb(255, 69, 61);
+                ChoiceCD_EnaDisa = "enable";
+            }
         }
-        string ChoiceQA_EnaDisa = "";
-        string ChoiceRA_EnaDisa = "";
-        string ChoiceHB_EnaDisa = "";
+        string ChoiceQA_EnaDisa = ""; string ChoiceRA_EnaDisa = ""; string ChoiceHB_EnaDisa = ""; string ChoiceCD_EnaDisa = "";
         private void btnDisableQueryAction_Click(object sender, EventArgs e)
         {
             if (QuerySettingsAction("Are you sure you would like to " + ChoiceQA_EnaDisa /*Disable/Enable*/ + " this setting?", "Movers"))
@@ -62,6 +72,27 @@
                     lblQueryActionIsEnabled.Text = "Enabled";
                     lblQueryActionIsEnabled.ForeColor = Color.FromArgb(77, 221, 77);
                     ChoiceQA_EnaDisa = "disable";
+                }
+            }
+        }
+
+        private void btnCascadeDelete_Click(object sender, EventArgs e)
+        {
+            if (QuerySettingsAction("Are you sure you would like to " + ChoiceCD_EnaDisa /*Disable/Enable*/ + " this setting?", "Movers"))
+            {
+                if (OverarchingSettings.QueryActionIsEnabled)
+                {
+                    OverarchingSettings.CascadeDeletionIsEnabled  = false;
+                    lblCascadeDeletionIsEnabled.Text = "Disabled";
+                    lblCascadeDeletionIsEnabled.ForeColor = Color.FromArgb(255, 69, 61);
+                    ChoiceCD_EnaDisa = "enable";
+                }
+                else
+                {
+                    OverarchingSettings.CascadeDeletionIsEnabled  = true;
+                    lblCascadeDeletionIsEnabled.Text = "Enabled";
+                    lblCascadeDeletionIsEnabled.ForeColor = Color.FromArgb(77, 221, 77);
+                    ChoiceCD_EnaDisa = "disable";
                 }
             }
         }
