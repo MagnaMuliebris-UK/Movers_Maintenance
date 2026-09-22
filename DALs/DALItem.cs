@@ -98,8 +98,12 @@ namespace Movers_Maintenance_Subsystem.DALs
         {
             using (SqlConnection Connection = new(_connectionString))
             {
+                if(OverarchingSettings.CascadeDeleteIsEnabled)
+                {
+                    DALActionCommenced.ItemDelCheckInconsistencies(id);
+                }
                 Connection.Open();
-
+                
                 SqlCommand UpdateCommand = new();
                 UpdateCommand.Connection = Connection;
                 //specifies this is a type of Stored Procedure
