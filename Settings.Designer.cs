@@ -30,6 +30,8 @@
         {
             btnDisableQueryAction = new Button();
             lblQueryActionIsEnabled = new Label();
+            btnCascadeDelete = new Button();
+            lblCascadeDeletionIsEnabled = new Label();
             lblSettingsTitle = new Label();
             lblReportActionIsEnabled = new Label();
             btnDisableActionReports = new Button();
@@ -43,7 +45,7 @@
             btnDisableQueryAction.FlatAppearance.BorderColor = Color.Silver;
             btnDisableQueryAction.FlatStyle = FlatStyle.Flat;
             btnDisableQueryAction.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            btnDisableQueryAction.Location = new Point(205, 120);
+            btnDisableQueryAction.Location = new Point(205, 92);
             btnDisableQueryAction.Name = "btnDisableQueryAction";
             btnDisableQueryAction.Size = new Size(300, 50);
             btnDisableQueryAction.TabIndex = 0;
@@ -54,7 +56,7 @@
             // lblQueryActionIsEnabled
             // 
             lblQueryActionIsEnabled.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            lblQueryActionIsEnabled.Location = new Point(205, 180);
+            lblQueryActionIsEnabled.Location = new Point(205, 152);
             lblQueryActionIsEnabled.Name = "lblQueryActionIsEnabled";
             lblQueryActionIsEnabled.Size = new Size(300, 30);
             lblQueryActionIsEnabled.TabIndex = 1;
@@ -75,7 +77,7 @@
             // lblReportActionIsEnabled
             // 
             lblReportActionIsEnabled.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            lblReportActionIsEnabled.Location = new Point(205, 460);
+            lblReportActionIsEnabled.Location = new Point(205, 376);
             lblReportActionIsEnabled.Name = "lblReportActionIsEnabled";
             lblReportActionIsEnabled.Size = new Size(300, 30);
             lblReportActionIsEnabled.TabIndex = 4;
@@ -88,7 +90,7 @@
             btnDisableActionReports.FlatAppearance.BorderColor = Color.Silver;
             btnDisableActionReports.FlatStyle = FlatStyle.Flat;
             btnDisableActionReports.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            btnDisableActionReports.Location = new Point(205, 400);
+            btnDisableActionReports.Location = new Point(205, 316);
             btnDisableActionReports.Name = "btnDisableActionReports";
             btnDisableActionReports.Size = new Size(300, 50);
             btnDisableActionReports.TabIndex = 3;
@@ -99,7 +101,7 @@
             // lblIsHelpEnabled
             // 
             lblIsHelpEnabled.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            lblIsHelpEnabled.Location = new Point(205, 320);
+            lblIsHelpEnabled.Location = new Point(205, 264);
             lblIsHelpEnabled.Name = "lblIsHelpEnabled";
             lblIsHelpEnabled.Size = new Size(300, 30);
             lblIsHelpEnabled.TabIndex = 6;
@@ -112,13 +114,37 @@
             btnDisableHelpBtns.FlatAppearance.BorderColor = Color.Silver;
             btnDisableHelpBtns.FlatStyle = FlatStyle.Flat;
             btnDisableHelpBtns.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            btnDisableHelpBtns.Location = new Point(205, 260);
+            btnDisableHelpBtns.Location = new Point(205, 204);
             btnDisableHelpBtns.Name = "btnDisableHelpBtns";
             btnDisableHelpBtns.Size = new Size(300, 50);
             btnDisableHelpBtns.TabIndex = 5;
             btnDisableHelpBtns.Text = "Show Help Buttons";
             btnDisableHelpBtns.UseVisualStyleBackColor = false;
             btnDisableHelpBtns.Click += btnDisableHelpBtns_Click;
+            // 
+            // lblCascadeDeletionIsEnabled
+            // 
+            lblCascadeDeletionIsEnabled.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            lblCascadeDeletionIsEnabled.Location = new Point(205, 498);
+            lblCascadeDeletionIsEnabled.Name = "lblCascadeDeletionIsEnabled";
+            lblCascadeDeletionIsEnabled.Size = new Size(300, 30);
+            lblCascadeDeletionIsEnabled.TabIndex = 4;
+            lblCascadeDeletionIsEnabled.Text = "Enabled";
+            lblCascadeDeletionIsEnabled.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // btnCascadeDelete
+            // 
+            btnCascadeDelete.BackColor = Color.Gainsboro;
+            btnCascadeDelete.FlatAppearance.BorderColor = Color.Silver;
+            btnCascadeDelete.FlatStyle = FlatStyle.Flat;
+            btnCascadeDelete.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            btnCascadeDelete.Location = new Point(205, 438);
+            btnCascadeDelete.Name = "btnCascadeDelete";
+            btnCascadeDelete.Size = new Size(300, 50);
+            btnCascadeDelete.TabIndex = 3;
+            btnCascadeDelete.Text = "Remove Data in Cascade";
+            btnCascadeDelete.UseVisualStyleBackColor = false;
+            btnCascadeDelete.Click += btnCascadeDelete_Click;
             // 
             // SettingsForm
             // 
@@ -144,6 +170,8 @@
 
         private Button btnDisableQueryAction;
         private Label lblQueryActionIsEnabled;
+        private Button btnCascadeDelete;
+        private Label lblCascadeDeletionIsEnabled;
         private Label lblSettingsTitle;
         private Label lblReportActionIsEnabled;
         private Button btnDisableActionReports;
